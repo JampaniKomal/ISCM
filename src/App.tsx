@@ -38,13 +38,30 @@ function App() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 max-w-[95%]">
-        <div className="mb-8 flex justify-between items-end">
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900">ISCM Framework v1.0</h2>
-            <p className="text-gray-700 mt-2 max-w-4xl text-sm leading-relaxed">
-              A comprehensive open-source taxonomy mapping the socio-technical tactics, techniques, and procedures (TTPs) 
-              used by cyber syndicates targeting Indian citizens and organizations. Built for threat intelligence, law enforcement, and defensive analysis.
-            </p>
+        <div className="mb-8 bg-white border border-matrix-border rounded-sm shadow-sm p-6 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-matrix-header"></div>
+          <div className="flex justify-between items-start">
+            <div className="max-w-4xl">
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">About ISCM Framework v1.0</h2>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  The Indian Socio-technical Cyber Matrix (ISCM) is an open-source taxonomy mapping the tactics, techniques, 
+                  and procedures (TTPs) used by cyber syndicates targeting Indian citizens and organizations. 
+                </p>
+                <p>
+                  <strong>Inspiration & Heritage:</strong> ISCM is deeply inspired by the structural rigor of the <a href="https://attack.mitre.org/" target="_blank" rel="noreferrer" className="text-matrix-accent hover:underline font-semibold">MITRE ATT&CK®</a> framework. While MITRE excels at enterprise network defense, ISCM is purpose-built to address the sociocentric nature of cyber fraud in India—where the primary vulnerability is human psychology rather than software exploits.
+                </p>
+                <div className="bg-slate-50 border border-slate-200 p-3 mt-4 rounded-sm italic text-gray-600">
+                  <span className="font-semibold text-gray-800 not-italic">Collaborative Origins:</span> The foundational architecture, initial taxonomy mapping, and v1.0 codebase of ISCM were developed through collaboration with an advanced AI agent (Gemini), intended to establish a professional, structured foundation for the global cybersecurity community.
+                </div>
+              </div>
+            </div>
+            <div className="hidden lg:block text-right flex-shrink-0 ml-6">
+              <a href="https://github.com/JampaniKomal/ISCM/blob/main/CONTRIBUTING.md" target="_blank" rel="noreferrer" className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-sm shadow-sm text-white bg-matrix-accent hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-matrix-accent">
+                 Contribute on GitHub
+              </a>
+              <p className="text-xs text-gray-500 mt-2 text-center">ISCM requires community input.</p>
+            </div>
           </div>
         </div>
 
