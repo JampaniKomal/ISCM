@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { tactics } from './data/tactics';
-import type { Technique } from './data/techniques';
 import { techniques } from './data/techniques';
+import type { Technique } from './types';
 
 function App() {
   const [selectedTechnique, setSelectedTechnique] = useState<Technique | null>(null);

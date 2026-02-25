@@ -1,12 +1,4 @@
-export interface Technique {
-  id: string;
-  name: string;
-  description: string;
-  tacticIds: string[];
-  domain: 'FIN' | 'NFIN';
-  dataSources: string[];
-  platforms: string[];
-}
+import type { Technique } from '../types';
 
 export const techniques: Technique[] = [
   // FIN Techniques

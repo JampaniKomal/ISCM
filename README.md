@@ -38,8 +38,8 @@ The framework is deployed as a React application with a Matrix user interface. Y
 
 ## Contributing
 
-ISCM relies entirely on the intelligence reporting of the cybersecurity community, banking nodal officers, open-source researchers, and law enforcement feedback. See the `CONTRIBUTING.md` file for guidelines on how to propose new Techniques or TTPs via Pull Requests.
+ISCM relies entirely on the intelligence reporting of the cybersecurity community, banking nodal officers, open-source researchers, and law enforcement feedback. See the [CONTRIBUTING.md](./CONTRIBUTING.md) file for guidelines on how to propose new Techniques or TTPs via Pull Requests.
 
 ## License
 
-This project is licensed under the MIT License - see the `LICENSE` file for details.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.

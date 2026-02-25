@@ -1,10 +1,4 @@
-export interface Tactic {
-  id: string;
-  name: string;
-  description: string;
-  domain: 'FIN' | 'NFIN' | 'BOTH';
-  mitigations?: string;
-}
+import type { Tactic } from '../types';
 
 export const tactics: Tactic[] = [
   {
