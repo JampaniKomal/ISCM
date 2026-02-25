@@ -47,6 +47,24 @@ export const techniques: Technique[] = [
     dataSources: ["AePS Transaction Logs", "Biometric Device Logs"],
     platforms: ["AePS", "Banking Systems"]
   },
+  {
+    id: "TE-FIN-006",
+    name: "Bulk Mule Account Sourcing",
+    description: "Adversaries procure massive quantities of 'mule' bank accounts by exploiting vulnerable populations (e.g., laborers, students). They offer a small one-time payment (₹2,000 - ₹5,000) or a monthly commission to individuals willing to open bank accounts or part with their ATM cards and internet banking credentials. These acquired accounts become the foundational infrastructure for laundering proceeds from primary scams.",
+    tacticIds: ["TA-02"],
+    domain: "FIN",
+    dataSources: ["Bank Account Onboarding Logs", "Device Fingerprinting"],
+    platforms: ["Banking Systems"]
+  },
+  {
+    id: "TE-FIN-007",
+    name: "Bulk Data Brokerage Procurement",
+    description: "Adversaries purchase vast datasets of leaked PII (Personally Identifiable Information) from underground forums or corrupt corporate insiders. These datasets, often categorized by victim demography (e.g., 'Senior Citizens', 'Recent Job Seekers'), form the foundational targeting list for subsequent mass smishing or specialized phishing campaigns.",
+    tacticIds: ["TA-01"],
+    domain: "FIN",
+    dataSources: ["Dark Web Monitoring", "Network Traffic Analysis"],
+    platforms: ["Web"]
+  },
   
   // NFIN Techniques
   {
@@ -93,5 +111,23 @@ export const techniques: Technique[] = [
     domain: "NFIN",
     dataSources: ["Video Call Metadata", "Application State"],
     platforms: ["Mobile", "WhatsApp", "Instagram"]
+  },
+  {
+    id: "TE-NFIN-006",
+    name: "Forged Identity KYC Overriding",
+    description: "Adversaries fabricate digital identity documents (Aadhaar, PAN cards) using basic image manipulation tools. These forged documents are then used to bypass 'Know Your Customer' (KYC) checks when procuring SIM cards in bulk or opening digital wallets. Often, complicit Point-of-Sale (PoS) agents for telecom companies facilitate this process, allowing thousands of 'pre-activated' SIM cards to flood the cybercrime ecosystem.",
+    tacticIds: ["TA-02", "TA-05"],
+    domain: "NFIN",
+    dataSources: ["Telecom Activation Logs", "KYC Verification Systems"],
+    platforms: ["Telecom Networks"]
+  },
+  {
+    id: "TE-NFIN-007",
+    name: "Offshore VoIP/SIP Trunk Leasing",
+    description: "To conduct mass-calling schemes (like Fake Digital Arrests) while masking their true location in India or Southeast Asia, syndicates lease Virtual Voice over Internet Protocol (VoIP) numbers or Session Initiation Protocol (SIP) trunks from offshore providers. These numbers are often spoofed to mimic legitimate Indian law enforcement (+91...) or official enterprise lines.",
+    tacticIds: ["TA-02"],
+    domain: "NFIN",
+    dataSources: ["ISP Traffic", "SIP Signaling Data"],
+    platforms: ["Windows", "macOS", "Mobile"]
   }
 ];
