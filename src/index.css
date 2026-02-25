@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-matrix-bg: #F4F7F9;
+  --color-matrix-card: #FFFFFF;
+  --color-matrix-border: #D1D5DB;
+  --color-matrix-accent: #2B6CB0;
+  --color-matrix-header: #1B3B5A;
+  --color-matrix-lightblue: #EBF8FF;
+  --color-domain-fin: #2F855A;
+  --color-domain-nfin: #C53030;
+}
+
+body {
+  background-color: var(--color-matrix-bg);
+  color: #1a202c;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar for matrix container */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-matrix-bg);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-matrix-border);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-matrix-header);
+}
