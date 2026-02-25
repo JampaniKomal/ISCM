@@ -14,10 +14,10 @@ The initial ideation, taxonomy design, and codebase architecture for ISCM v1.0 w
 
 The ISCM tracks three distinct pillars of Indian cyber threats: Tactics, Techniques, and Adversary Groups.
 
-Because Indian cybercrime straddles both severe monetary extortion and extreme personal harassment, the framework classifies all activity into two distinct domains:
+Because Indian cybercrime straddles both severe monetary extortion and extreme personal harassment, the framework categorizes all operational techniques into two strict domains:
 
-- **FIN (Financial):** Operations whose primary goal is the extraction or laundering of money (e.g., Loan Apps, AePS Biometric fraud, Smishing).
-- **NFIN (Non-Financial):** Operations generating psychological distress, harassment, or reputational damage (e.g., Fake Digital Arrests, Morphing, WhatsApp DP Spoofing).
+- **FIN (Financial):** The primary objective is the direct extraction, interception, or laundering of monetary assets. _Examples: Intercepting an OTP to drain a bank account, or routing stolen funds through mule networks._
+- **NFIN (Non-Financial):** The primary objective is psychological manipulation, extortion, defamation, or forged identity creation. While money may be demanded as a ransom, the technique itself targets the person's reputation or emotions, not their bank vault directly. _Examples: Deepfake morphing, fake arrest warrants via Skype, or WhatsApp hijacking._
 
 ### The ISCM Kill Chain (Tactics)
 

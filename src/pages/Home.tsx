@@ -53,13 +53,14 @@ export default function Home() {
         <div className="flex gap-4" style={{ minWidth: 'max-content' }}>
           {tactics.map((tactic) => (
             <div key={tactic.id} className="w-[240px] shrink-0 border border-matrix-border bg-white shadow-sm flex flex-col rounded-sm">
-              <div 
-                className="bg-matrix-card p-3 border-b-4 border-matrix-header hover:bg-matrix-lightblue transition-colors group cursor-help rounded-t-sm"
-                title={tactic.description}
+              <Link 
+                to={`/tactics/${tactic.id}`}
+                className="block bg-matrix-card p-3 border-b-4 border-matrix-header hover:bg-matrix-lightblue transition-colors group cursor-pointer rounded-t-sm"
+                title={`View details for ${tactic.name}`}
               >
                 <h3 className="font-bold text-[15px] text-gray-900 group-hover:text-matrix-accent leading-tight mb-1">{tactic.name}</h3>
                 <div className="text-xs text-gray-500 font-mono font-semibold">{tactic.id}</div>
-              </div>
+              </Link>
               
               <div className="p-2 flex flex-col gap-2 flex-grow bg-slate-50 relative">
                 {getTechniquesForTactic(tactic.id).map((tech) => (
