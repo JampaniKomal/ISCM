@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# Indian Socio-technical Cyber Matrix (ISCM)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ISCM is an open-source, intelligence-driven framework documenting the tactics, techniques, and procedures (TTPs) deployed by cybercrime syndicates targeting Indian citizens, organizations, and critical infrastructure.
 
-Currently, two official plugins are available:
+Unlike enterprise-focused frameworks that primarily track technical network breaches, ISCM recognizes that the vast majority of substantial fraud in India is socio-technical. The vulnerability is human emotion or urgency; the infrastructure is often forged telecom or banking access rather than advanced malware.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Inspiration and Acknowledgment
 
-## React Compiler
+This project is heavily inspired by the foundational structure and visual presentation of the **MITRE ATT&CK** framework. We aim to bring that same rigorous standard of documentation, intelligence sharing, and defensive planning to the sociocentric cyber landscape in India.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The initial ideation, taxonomy design, and codebase architecture for ISCM v1.0 were developed in collaboration with an advanced AI engineering agent (Antigravity/Gemini). This collaboration sought to establish a professional, scaleable open-source foundation for the global cybersecurity community to build upon.
 
-## Expanding the ESLint configuration
+## The ISCM Taxonomy
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The ISCM tracks three distinct pillars of Indian cyber threats: Tactics, Techniques, and Adversary Groups.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Because Indian cybercrime straddles both severe monetary extortion and extreme personal harassment, the framework classifies all activity into two distinct domains:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **FIN (Financial):** Operations whose primary goal is the extraction or laundering of money (e.g., Loan Apps, AePS Biometric fraud, Smishing).
+- **NFIN (Non-Financial):** Operations generating psychological distress, harassment, or reputational damage (e.g., Fake Digital Arrests, Morphing, WhatsApp DP Spoofing).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### The ISCM Kill Chain (Tactics)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The Indian socio-technical kill chain generally follows a 7-stage process:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1.  **TA-01: Reconnaissance & Sourcing** (Data brokerage, OSINT)
+2.  **TA-02: Infrastructure Procurement** (Mule accounts, pre-activated VoIP/SIMs)
+3.  **TA-03: Lure & Delivery** (SMS Blasting, Social Media Ads)
+4.  **TA-04: Psychological Exploitation** (Weaponization of Fear or Greed)
+5.  **TA-05: Execution & Compromise** (APK installation, Screen Sharing, OTP sharing)
+6.  **TA-06: Financial Exfiltration** (Mule hopping, Crypto conversion)
+7.  **TA-07: Impact & Extortion** (Sustained blackmail, financial loss)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Viewing the Matrix
+
+The framework is deployed as a React application with a Matrix user interface. You can view the live, interactive matrix here:
+**[View the ISCM Framework](https://JampaniKomal.github.io/ISCM)**
+
+## Contributing
+
+ISCM relies entirely on the intelligence reporting of the cybersecurity community, banking nodal officers, open-source researchers, and law enforcement feedback. See the `CONTRIBUTING.md` file for guidelines on how to propose new Techniques or TTPs via Pull Requests.
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE` file for details.
