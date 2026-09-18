@@ -34,10 +34,6 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
-              
-              <div className="bg-matrix-lightblue border border-matrix-accent p-3 mt-4 rounded-sm text-gray-700 text-xs">
-                <span className="font-semibold text-matrix-header italic">Collaborative Origins:</span> The foundational v1.0 architecture of ISCM was developed in collaboration with an advanced AI agent (Gemini), intended to establish a professional, structured foundation for the global cybersecurity community.
-              </div>
             </div>
           </div>
           <div className="hidden lg:block text-right flex-shrink-0 ml-6">

@@ -34,7 +34,7 @@ export default function Layout() {
       <footer className="bg-white border-t border-gray-200 py-6 mt-12 text-center text-sm text-gray-500">
         <p>The ISCM framework is an open-source intelligence initiative.</p>
         <p className="mt-1">
-           View the <a href="https://github.com/JampaniKomal/ISCM" className="text-matrix-accent hover:underline">GitHub Repository</a> down to contribute to the matrix.
+           View the <a href="https://github.com/JampaniKomal/ISCM" className="text-matrix-accent hover:underline">GitHub Repository</a> to contribute to the matrix.
         </p>
       </footer>
     </div>
