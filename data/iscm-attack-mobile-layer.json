@@ -1,0 +1,56 @@
+{
+  "name": "ISCM in ATT&CK Mobile",
+  "versions": {
+    "attack": "19",
+    "navigator": "5.1.0",
+    "layer": "4.5"
+  },
+  "domain": "mobile-attack",
+  "description": "ATT&CK techniques that techniques of the Indian Socio-technical Cyber Matrix (ISCM) correspond to. Score: number of ISCM techniques referencing the technique. https://jampanikomal.github.io/ISCM/attack",
+  "techniques": [
+    {
+      "techniqueID": "T1417.002",
+      "score": 1,
+      "comment": "TE-FIN-002 Malicious APK Sideloading (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1533",
+      "score": 1,
+      "comment": "TE-FIN-004 Instant Predatory Loan Apps (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1636.003",
+      "score": 1,
+      "comment": "TE-FIN-004 Instant Predatory Loan Apps (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1636.004",
+      "score": 1,
+      "comment": "TE-FIN-002 Malicious APK Sideloading (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1655.001",
+      "score": 1,
+      "comment": "TE-FIN-002 Malicious APK Sideloading (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1660",
+      "score": 2,
+      "comment": "TE-FIN-001 Bulk SMS Phishing (Smishing) (equivalent); TE-FIN-002 Malicious APK Sideloading (partial)",
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#fff3bf",
+      "#e8590c"
+    ],
+    "minValue": 0,
+    "maxValue": 2
+  }
+}

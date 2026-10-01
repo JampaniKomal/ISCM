@@ -1,0 +1,80 @@
+{
+  "name": "ISCM in ATT&CK Enterprise",
+  "versions": {
+    "attack": "19",
+    "navigator": "5.1.0",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "ATT&CK techniques that techniques of the Indian Socio-technical Cyber Matrix (ISCM) correspond to. Score: number of ISCM techniques referencing the technique. https://jampanikomal.github.io/ISCM/attack",
+  "techniques": [
+    {
+      "techniqueID": "T1583",
+      "score": 1,
+      "comment": "TE-NFIN-007 Offshore VoIP/SIP Trunk Leasing (equivalent)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1585",
+      "score": 3,
+      "comment": "TE-FIN-006 Bulk Mule Account Sourcing (partial); TE-NFIN-003 WhatsApp DP/Identity Hijacking (partial); TE-NFIN-006 Forged Identity KYC Overriding (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1585.001",
+      "score": 1,
+      "comment": "TE-NFIN-005 Sextortion Hook (Video Call Trap) (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1589",
+      "score": 3,
+      "comment": "TE-FIN-005 AePS Biometric Cloning (partial); TE-FIN-007 Bulk Data Brokerage Procurement (partial); TE-NFIN-004 Systematic Doxing (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1593.001",
+      "score": 2,
+      "comment": "TE-NFIN-002 Morphed Image Blackmail (Deep-faking) (partial); TE-NFIN-004 Systematic Doxing (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1597",
+      "score": 1,
+      "comment": "TE-FIN-007 Bulk Data Brokerage Procurement (equivalent)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1657",
+      "score": 6,
+      "comment": "TE-FIN-003 Mule Account Network Layering (partial); TE-FIN-004 Instant Predatory Loan Apps (partial); TE-NFIN-001 Authority Impersonation (Fake Digital Arrest) (partial); TE-NFIN-002 Morphed Image Blackmail (Deep-faking) (partial); TE-NFIN-003 WhatsApp DP/Identity Hijacking (partial); TE-NFIN-005 Sextortion Hook (Video Call Trap) (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1683",
+      "score": 2,
+      "comment": "TE-NFIN-002 Morphed Image Blackmail (Deep-faking) (equivalent); TE-NFIN-006 Forged Identity KYC Overriding (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1684",
+      "score": 1,
+      "comment": "TE-NFIN-005 Sextortion Hook (Video Call Trap) (partial)",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1684.001",
+      "score": 2,
+      "comment": "TE-NFIN-001 Authority Impersonation (Fake Digital Arrest) (equivalent); TE-NFIN-003 WhatsApp DP/Identity Hijacking (equivalent)",
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#fff3bf",
+      "#e8590c"
+    ],
+    "minValue": 0,
+    "maxValue": 6
+  }
+}
