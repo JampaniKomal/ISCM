@@ -1,11 +1,28 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { tactics } from '../data/tactics';
 import { techniques } from '../data/techniques';
+import type { Technique } from '../types';
+
+type DomainFilter = 'ALL' | 'FIN' | 'NFIN';
+
+// A technique matches the search if the text appears in its name, ID,
+// description, platforms, or the ID or name of an ATT&CK technique it maps to.
+function matches(tech: Technique, domain: DomainFilter, query: string): boolean {
+  if (domain !== 'ALL' && tech.domain !== domain) return false;
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  return [tech.id, tech.name, tech.description, ...tech.platforms, ...tech.attack.flatMap((a) => [a.id, a.name])]
+    .some((text) => text.toLowerCase().includes(q));
+}
 
 export default function Home() {
+  const [domain, setDomain] = useState<DomainFilter>('ALL');
+  const [query, setQuery] = useState('');
   const getTechniquesForTactic = (tacticId: string) => {
     return techniques.filter(tech => tech.tacticIds.includes(tacticId));
   };
+  const shown = techniques.filter((t) => matches(t, domain, query)).length;
 
   return (
     <>
@@ -13,7 +30,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-1.5 h-full bg-matrix-header"></div>
         <div className="flex justify-between items-start">
           <div className="max-w-4xl">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">About ISCM Framework v1.0</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">About ISCM Framework v1.1</h2>
             <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
               <p>
                 The Indian Socio-technical Cyber Matrix (ISCM) is an open-source taxonomy mapping the tactics, techniques, 
@@ -21,6 +38,8 @@ export default function Home() {
               </p>
               <p>
                 <strong>Inspiration & Heritage:</strong> ISCM is deeply inspired by the structural rigor of the <a href="https://attack.mitre.org/" target="_blank" rel="noreferrer" className="text-matrix-accent hover:underline font-semibold">MITRE ATT&CK®</a> framework. While MITRE excels at enterprise network defense, ISCM is purpose-built to address the sociocentric nature of cyber fraud in India—where the primary vulnerability is human psychology rather than software exploits.
+                Every technique is cross-referenced to the ATT&CK techniques it corresponds to, and states what ATT&CK does not cover:{' '}
+                <Link to="/attack" className="text-matrix-accent hover:underline font-semibold">see the ATT&CK mapping</Link>.
               </p>
               <div className="bg-slate-50 border border-slate-200 p-4 mt-5 rounded-sm">
                 <h3 className="font-bold text-gray-900 mb-2 border-b border-gray-200 pb-1">Understanding the Taxonomy: FIN vs. NFIN</h3>
@@ -45,6 +64,33 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="flex flex-wrap items-center gap-3 mb-4">
+        <div className="inline-flex rounded-sm border border-matrix-border overflow-hidden text-sm" role="group" aria-label="Domain">
+          {(['ALL', 'FIN', 'NFIN'] as const).map((d) => (
+            <button
+              key={d}
+              type="button"
+              onClick={() => setDomain(d)}
+              aria-pressed={domain === d}
+              className={`px-3 py-1.5 font-semibold ${domain === d ? 'bg-matrix-header text-white' : 'bg-white text-gray-700 hover:bg-slate-50'}`}
+            >
+              {d === 'ALL' ? 'All' : d}
+            </button>
+          ))}
+        </div>
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search techniques, platforms or ATT&CK IDs (e.g. AePS, WhatsApp, T1660)"
+          aria-label="Search techniques"
+          className="flex-grow max-w-xl border border-matrix-border rounded-sm px-3 py-1.5 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-matrix-accent"
+        />
+        <span className="text-xs text-gray-500">
+          {shown} of {techniques.length} techniques
+        </span>
+      </div>
+
       <div className="overflow-x-auto pb-6 custom-scrollbar">
         <div className="flex gap-4" style={{ minWidth: 'max-content' }}>
           {tactics.map((tactic) => (
@@ -63,7 +109,9 @@ export default function Home() {
                   <Link
                     key={`${tactic.id}-${tech.id}`}
                     to={`/techniques/${tech.id}`}
-                    className="block bg-white border border-gray-200 p-2 text-sm hover:border-matrix-accent hover:shadow-md transition-all group relative rounded-sm"
+                    className={`block bg-white border border-gray-200 p-2 text-sm hover:border-matrix-accent hover:shadow-md transition-all group relative rounded-sm ${
+                      matches(tech, domain, query) ? '' : 'opacity-25'
+                    }`}
                   >
                     <div className={`absolute top-0 left-0 w-1.5 h-full rounded-l-sm ${tech.domain === 'FIN' ? 'bg-domain-fin' : 'bg-domain-nfin'}`}></div>
                     <div className="pl-2 font-semibold text-gray-800 group-hover:text-matrix-accent leading-snug mb-1">{tech.name}</div>

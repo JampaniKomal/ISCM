@@ -19,7 +19,10 @@ export default function Layout() {
               <span className="flex items-center text-xs font-medium">
                 <span className="w-3 h-3 bg-domain-nfin inline-block mr-1 rounded-sm"></span> Non-Financial (NFIN)
               </span>
-              <a href="https://github.com/JampaniKomal/ISCM" target="_blank" rel="noreferrer" className="text-sm border border-white px-4 py-1.5 hover:bg-white hover:text-matrix-header transition-colors ml-4 font-bold rounded-sm">
+              <Link to="/attack" className="text-sm border border-white px-4 py-1.5 hover:bg-white hover:text-matrix-header transition-colors ml-4 font-bold rounded-sm">
+                ATT&amp;CK mapping
+              </Link>
+              <a href="https://github.com/JampaniKomal/ISCM" target="_blank" rel="noreferrer" className="text-sm border border-white px-4 py-1.5 hover:bg-white hover:text-matrix-header transition-colors font-bold rounded-sm">
                 GitHub Repository
               </a>
             </div>

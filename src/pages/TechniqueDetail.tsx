@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { techniques } from '../data/techniques';
 import { tactics } from '../data/tactics';
+import { AttackBadge } from './AttackMapping';
 
 export default function TechniqueDetail() {
   const { id } = useParams<{ id: string }>();
@@ -88,18 +89,36 @@ export default function TechniqueDetail() {
           </div>
         </div>
         
-        {(() => {
-          const parentWithMitigation = tactics.find(t => technique.tacticIds.includes(t.id) && t.mitigations);
-          if (parentWithMitigation) {
-            return (
-              <div className="mt-8 text-sm text-gray-800 bg-matrix-lightblue p-6 rounded-sm border-l-4 border-matrix-accent shadow-sm">
-                <h4 className="font-bold text-matrix-header mb-2 text-sm uppercase tracking-wider">Mitigation Strategy (from {parentWithMitigation.name})</h4>
-                <p className="leading-relaxed text-[15px]">{parentWithMitigation.mitigations}</p>
-              </div>
-            );
-          }
-          return null;
-        })()}
+        <div className="mt-8">
+          <h3 className="text-xl font-bold mb-3 border-b-2 border-gray-100 pb-2 text-matrix-header">MITRE ATT&amp;CK</h3>
+          <div className="flex flex-wrap gap-2">
+            {technique.attack.map((a) => (
+              <AttackBadge key={a.id} reference={a} />
+            ))}
+          </div>
+          <p className="text-xs text-gray-500 mt-2">
+            Highlighted: equivalent behaviour. Plain: covers part of this technique.{' '}
+            <Link to="/attack" className="text-matrix-accent hover:underline">All cross-references</Link>
+          </p>
+          {technique.attackGap && (
+            <p className="mt-3 text-[15px] text-gray-800 bg-amber-50 border-l-4 border-amber-400 p-4 rounded-sm">
+              <span className="font-bold">Not described by ATT&amp;CK: </span>
+              {technique.attackGap}
+            </p>
+          )}
+        </div>
+
+        {/* Mitigations are recorded per tactic, so show the one for each tactic this technique serves. */}
+        {tactics
+          .filter((t) => technique.tacticIds.includes(t.id) && t.mitigations)
+          .map((t) => (
+            <div key={t.id} className="mt-6 text-sm text-gray-800 bg-matrix-lightblue p-6 rounded-sm border-l-4 border-matrix-accent shadow-sm">
+              <h4 className="font-bold text-matrix-header mb-2 text-sm uppercase tracking-wider">
+                Mitigation at the {t.name} stage ({t.id})
+              </h4>
+              <p className="leading-relaxed text-[15px]">{t.mitigations}</p>
+            </div>
+          ))}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import TacticDetail from './pages/TacticDetail';
 import TechniqueDetail from './pages/TechniqueDetail';
+import AttackMapping from './pages/AttackMapping';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="tactics/:id" element={<TacticDetail />} />
         <Route path="techniques/:id" element={<TechniqueDetail />} />
+        <Route path="attack" element={<AttackMapping />} />
       </Route>
     </Routes>
   );
