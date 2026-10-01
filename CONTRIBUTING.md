@@ -38,9 +38,20 @@ When submitting a Pull Request to register a new Technique in `src/data/techniqu
   tacticIds: ["TA-0X"], // Array of Tactics this technique achieves
   domain: "FIN" | "NFIN",
   dataSources: ["Relevant logs, traces, or platform telemetry (e.g., UPI Transaction Data)"],
-  platforms: ["Where the exploit occurs (e.g., WhatsApp, Banking Systems, Android)"]
+  platforms: ["Where the exploit occurs (e.g., WhatsApp, Banking Systems, Android)"],
+  attack: [
+    // MITRE ATT&CK techniques that describe the same behaviour (equivalent) or one step of it (partial)
+    { id: "T1660", name: "Phishing", domain: "mobile", relation: "equivalent" }
+  ],
+  attackGap: "Required when every reference is partial: what this technique involves that ATT&CK does not describe."
 }
 ```
+
+`npm test` checks the submission: unique IDs that match the domain, tactic
+IDs that exist and fit the domain, and ATT&CK references whose ID, name and
+domain match MITRE's data (`src/data/attack-reference.json`, refreshed with
+`npm run attack:update`). Look techniques up on
+[attack.mitre.org](https://attack.mitre.org/) and use MITRE's exact names.
 
 ## Review Guidelines
 

@@ -1,5 +1,11 @@
 # ISCM Future Development Roadmap (v1.1 -> v2.0)
 
+> **Done in v1.1 (October 2026):** every technique cross-referenced to MITRE
+> ATT&CK (Enterprise and Mobile) with the gap stated, checked against MITRE's
+> STIX data; a search box and FIN/NFIN filter on the matrix; JSON and ATT&CK
+> Navigator layer exports; data-validation tests run in CI on every pull
+> request; automatic deployment from `main`.
+
 This document captures all the architectural, intelligence, and UI enhancements deferred during the v1.0 foundational sprint. It serves as a blueprint for evolving ISCM into a globally recognized standard.
 
 ## 1. Adversary Group Mapping (The "Who" - Priority v1.1)

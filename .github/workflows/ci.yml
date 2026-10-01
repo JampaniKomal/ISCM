@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Data tests (IDs, tactic links, ATT&CK cross-references, Navigator layers)
+        run: npm test
+
+      - name: Type-check and build
+        run: npm run build
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: dist
+
+  # The live site is served by GitHub Pages from the gh-pages branch; every
+  # push to main republishes it, so the site always matches main.
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency: pages
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: dist
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          commit_message: "Deploy ${{ github.sha }}"
